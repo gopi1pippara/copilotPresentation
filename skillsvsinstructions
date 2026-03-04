@@ -35,3 +35,188 @@ AI follows architecture
 Consistent codebase
 Reusable workflows
 Faster development
+
+
+order-service
+│
+├── src/
+│   ├── main/java
+│   └── test/java
+│
+├── pom.xml
+│
+└── .github
+    └── copilot
+        ├── instructions.md
+        └── skills
+            ├── generate-controller.md
+            ├── generate-service.md
+            ├── generate-repository.md
+            ├── generate-dto.md
+            ├── generate-tests.md
+            ├── debug-production-error.md
+            ├── refactor-service.md
+            ├── add-observability.md
+            ├── optimize-query.md
+            └── generate-react-component.md
+
+
+# Copilot Instructions for Spring Boot Microservice
+
+This repository follows a standard Spring Boot microservice architecture.
+
+When generating code in this repository, follow these rules.
+
+## Architecture
+
+Use layered architecture:
+
+Controller → Service → Repository → Database
+
+Rules:
+- Controllers handle HTTP requests only.
+- Business logic belongs in the Service layer.
+- Repository layer uses Spring Data JPA.
+
+## API Design
+
+- Do not expose JPA entities in REST APIs.
+- Always use DTO objects.
+- Use ResponseEntity in controllers.
+- Follow REST conventions.
+
+Example endpoints:
+
+GET    /api/orders
+GET    /api/orders/{id}
+POST   /api/orders
+PUT    /api/orders/{id}
+DELETE /api/orders/{id}
+
+## Dependency Injection
+
+Use constructor injection with Lombok.
+
+Example:
+
+@Service
+@RequiredArgsConstructor
+public class OrderService {
+
+    private final OrderRepository repository;
+
+}
+
+## Logging
+
+Use SLF4J logging.
+
+Example:
+
+log.info("Processing order {}", orderId);
+
+## Testing
+
+Use:
+
+- JUnit 5
+- Mockito
+
+Follow Arrange → Act → Assert pattern.
+
+## Validation
+
+Use Bean Validation:
+
+@NotNull
+@NotBlank
+@Email
+
+## Error Handling
+
+Use global exception handling:
+
+@RestControllerAdvice
+public class GlobalExceptionHandler {
+
+}
+
+
+
+Skill 1 — Generate Controller
+.github/copilot/skills/generate-controller.md
+
+---
+name: Generate Spring Boot Controller
+description: Generates REST controllers following project architecture
+---
+
+Generate a Spring Boot REST controller.
+
+Requirements:
+
+- Use DTO objects
+- Use ResponseEntity
+- Follow REST naming conventions
+- Do not include business logic
+
+Example:
+
+@RestController
+@RequestMapping("/api/{resource}")
+@RequiredArgsConstructor
+public class {EntityName}Controller {
+
+    private final {EntityName}Service service;
+
+}
+
+
+Skill 2 — Generate Service Layer
+generate-service.md
+
+---
+name: Generate Service Layer
+description: Creates business logic service class
+---
+
+Generate a Spring Boot service class.
+
+Requirements:
+
+- Use @Service
+- Use constructor injection
+- Add logging
+- Throw custom exceptions
+
+Skill 4 — Generate DTO
+generate-dto.md
+
+---
+name: Generate DTO
+description: Creates DTO classes for API layer
+---
+
+Generate DTO class for the entity.
+
+Requirements:
+
+- Use Lombok
+- Include validation annotations
+
+
+Skill 5 — Generate Unit Tests
+generate-tests.md
+
+---
+name: Generate Unit Tests
+description: Creates JUnit tests
+---
+
+Generate unit tests using:
+
+- JUnit 5
+- Mockito
+
+Mock repository dependencies.
+Follow Arrange → Act → Assert pattern.

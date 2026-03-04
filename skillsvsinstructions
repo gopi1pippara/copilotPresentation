@@ -1,0 +1,37 @@
+    ┌─────────────────────────┐
+    │     instructions.md      │
+    │  Global coding rules     │
+    └─────────────┬───────────┘
+                  │
+                  ▼
+    ┌─────────────────────────┐
+    │        Skills           │
+    │  Reusable dev tasks     │
+    └─────────────┬───────────┘
+                  │
+                  ▼
+            Generated Code
+
+
+.github/
+  copilot/
+    instructions.md
+    skills/
+       generate-controller.md
+       generate-service.md
+       generate-tests.md
+
+
+instructions.md → Global AI coding rules
+skills/*.md     → Reusable AI development tasks
+
+
+Developers write random prompts
+Architecture inconsistent
+Slow onboarding
+
+With instructions + skills:
+AI follows architecture
+Consistent codebase
+Reusable workflows
+Faster development

@@ -220,3 +220,269 @@ Generate unit tests using:
 
 Mock repository dependencies.
 Follow Arrange → Act → Assert pattern.
+
+
+
+instructions.md = How Copilot should behave
+skills = What tasks Copilot should automate
+
+
+
+
+Below is a **simple but impressive 5-minute live demo script** you can use in a presentation to show **GitHub Copilot Skills + Instructions working with a Spring Boot microservice**.
+This demo works very well in **IntelliJ or VS Code with Copilot Chat enabled**.
+
+I’ll structure it like a **stage script** so you can present smoothly.
+
+---
+
+# 5-Minute GitHub Copilot Live Demo
+
+## Spring Boot Microservice Example
+
+## Demo Goal
+
+Show how **Copilot + Instructions + Skills** can generate **production-ready microservice code** following team architecture.
+
+---
+
+# 1️⃣ Slide 1 – Explain the Setup (30 seconds)
+
+Tell the audience:
+
+> “In this repository we configured GitHub Copilot with two things:
+>
+> • `instructions.md` → global architecture rules
+> • `skills/` → reusable developer workflows”
+
+Show the repository structure.
+
+```text
+.github/
+   copilot/
+      instructions.md
+      skills/
+         generate-controller.md
+         generate-service.md
+         generate-tests.md
+```
+
+Explain:
+
+```text
+instructions.md = How Copilot should behave
+skills = What tasks Copilot should automate
+```
+
+---
+
+# 2️⃣ Slide 2 – Show the Instruction File (30 seconds)
+
+Open:
+
+```text
+.github/copilot/instructions.md
+```
+
+Highlight rules:
+
+```text
+Controller → Service → Repository
+Use DTO instead of entities
+Use ResponseEntity
+Use JUnit + Mockito
+Use SLF4J logging
+```
+
+Tell the audience:
+
+> “Now Copilot automatically follows these rules whenever it generates code.”
+
+---
+
+# 3️⃣ Live Demo – Generate API (1 minute)
+
+Open a new file:
+
+```java
+OrderController.java
+```
+
+Ask Copilot Chat:
+
+```
+Generate REST API for Order entity
+```
+
+Explain to audience:
+
+> “Copilot is reading the repository context and instruction rules.”
+
+Copilot generates something like:
+
+```java
+@RestController
+@RequestMapping("/api/orders")
+@RequiredArgsConstructor
+public class OrderController {
+
+    private final OrderService orderService;
+
+}
+```
+
+Explain:
+
+✔ DTO pattern
+✔ ResponseEntity
+✔ Correct REST endpoints
+
+---
+
+# 4️⃣ Demo Service Generation (1 minute)
+
+Ask Copilot:
+
+```
+Generate service layer for Order entity
+```
+
+Copilot generates:
+
+```java
+@Service
+@RequiredArgsConstructor
+@Slf4j
+public class OrderService {
+
+    private final OrderRepository repository;
+
+}
+```
+
+Explain:
+
+> “Notice it followed our architecture rule:
+>
+> Controller → Service → Repository.”
+
+---
+
+# 5️⃣ Demo Unit Test Generation (1 minute)
+
+Ask Copilot:
+
+```
+Generate JUnit tests for OrderService
+```
+
+Copilot generates:
+
+```java
+@ExtendWith(MockitoExtension.class)
+class OrderServiceTest {
+
+    @Mock
+    private OrderRepository repository;
+
+    @InjectMocks
+    private OrderService service;
+
+}
+```
+
+Explain:
+
+> “The instruction file told Copilot to use **JUnit 5 + Mockito**.”
+
+---
+
+# 6️⃣ Demo Debugging (30 seconds)
+
+Paste a fake error.
+
+Ask Copilot:
+
+```
+Analyze this Spring Boot stack trace
+```
+
+Copilot explains:
+
+```
+Root cause
+Possible fix
+Logging improvements
+```
+
+Tell audience:
+
+> “Copilot is acting like a debugging assistant.”
+
+---
+
+# 7️⃣ Final Slide – Show the Workflow (30 seconds)
+
+Display this diagram:
+
+```
+Developer Request
+      ↓
+Copilot reads instructions.md
+      ↓
+Copilot reads skills
+      ↓
+Generated Production Code
+```
+
+Explain:
+
+> “Copilot is not just auto-completion anymore.
+>
+> With instructions and skills, it behaves like a **team architect and senior engineer assistant**.”
+
+---
+
+# 8️⃣ Closing Message (Very Effective)
+
+End with this statement:
+
+> “Instead of every developer writing prompts manually, we teach Copilot how our architecture works.
+>
+> Once the repository is configured, **every developer gets the same best practices automatically.**”
+
+---
+
+# Bonus Tip (Makes Demo Look Powerful)
+
+Before the demo, create an empty folder:
+
+```
+order-service
+```
+
+Then ask Copilot:
+
+```
+Generate Spring Boot Order microservice skeleton
+```
+
+Copilot can generate:
+
+```
+controller
+service
+repository
+dto
+tests
+```
+
+This **looks extremely impressive in live demos**.
+
+---
+
+✅ If you'd like, I can also give you **the most impressive Copilot demo engineers use internally**:
+
+**“Build a complete Spring Boot microservice in 3 prompts using Copilot.”**
+
+It’s the **best possible Copilot demo.**

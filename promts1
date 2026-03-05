@@ -1,0 +1,4 @@
+Use the repository skill "Generate Spring Boot REST Controller (Best Practices)".
+Generate controller for EntityName=Customer, resource=customers, IdType=Long.
+Use DTOs: CustomerRequest and CustomerResponse.
+Include pagination for GET /api/customers.

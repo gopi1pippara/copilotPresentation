@@ -66,3 +66,42 @@ Task: Generate a REST controller for {EntityName}.
   - Location header on POST
   - OpenAPI annotations
   - Clean imports and consistent naming
+
+
+
+
+Act as a senior Java/Spring Boot engineer.
+
+Generate a production-quality unit test class for: {ServiceClassName}
+Package: {basePackage}.service
+
+Context:
+- This is a Spring Boot microservice.
+- {ServiceClassName} depends on:
+  - {Repository1}, {Repository2} (Spring Data repositories)
+  - {MapperOrClient} (mapper or external client)
+- Methods to cover:
+  - {method1Signature}
+  - {method2Signature}
+  - {method3Signature}
+
+Requirements (use modern JUnit 5 patterns):
+- Use JUnit Jupiter (JUnit 5) with:
+  - @Nested to group tests by method
+  - @DisplayName for readability
+  - @ParameterizedTest + @MethodSource for input variations
+  - AssertJ assertions (assertThat…)
+  - Mockito with @ExtendWith(MockitoExtension.class), @Mock, @InjectMocks
+  - Verify interactions (verify / verifyNoMoreInteractions)
+  - Include failure-path tests:
+    - not found -> ResourceNotFoundException
+    - validation -> IllegalArgumentException or BusinessRuleViolationException
+- Follow Arrange → Act → Assert and clear naming conventions
+- Don’t use SpringBootTest for this (pure unit test only)
+- Add helper builders/mothers for DTO/entity test data
+- Keep tests deterministic (no random, no time dependency)
+
+Output:
+- Full Java test class: {ServiceClassName}Test
+- Include method sources for parameterized tests
+- Include at least 8–12 test cases total

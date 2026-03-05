@@ -2,3 +2,67 @@ Use the repository skill "Generate Spring Boot REST Controller (Best Practices)"
 Generate controller for EntityName=Customer, resource=customers, IdType=Long.
 Use DTOs: CustomerRequest and CustomerResponse.
 Include pagination for GET /api/customers.
+---
+name: Generate Spring Boot REST Controller (Best Practices)
+description: Creates production-grade Spring Boot REST controllers for microservices (DTO-first, validation, observability, OpenAPI)
+---
+
+You are a Senior Java Architect building Spring Boot microservices.
+
+Task: Generate a REST controller for {EntityName}.
+
+### Context / Assumptions
+- Base path: /api/{resource}
+- Service exists: {EntityName}Service
+- DTOs exist: {EntityName}Request, {EntityName}Response
+- Identifier type: {IdType} (default Long)
+- All endpoints must be DTO-based (NEVER expose JPA entities)
+
+### Controller Best Practices (MANDATORY)
+1) Layering
+- Controller must be thin: request parsing + validation + calling service + mapping response.
+- No business logic in controller.
+
+2) REST + HTTP semantics
+- GET /api/{resource}            -> 200 OK, supports pagination
+- GET /api/{resource}/{id}       -> 200 OK or 404 Not Found
+- POST /api/{resource}           -> 201 Created + Location header
+- PUT /api/{resource}/{id}       -> 200 OK or 404 Not Found
+- DELETE /api/{resource}/{id}    -> 204 No Content or 404 Not Found
+
+3) Validation
+- Use @Validated on class and @Valid on request body.
+- Validate path params (e.g., @Positive for ids).
+
+4) Error handling
+- Do NOT implement try/catch in controller.
+- Assume GlobalExceptionHandler exists with:
+  - ResourceNotFoundException -> 404
+  - Validation errors -> 400
+  - BusinessRuleViolationException -> 422
+  - Unauthorized/Forbidden handled by security
+
+5) Observability
+- Use SLF4J logging.
+- Log at INFO: operation name + key identifiers (id, resource).
+- Never log sensitive data (PII/PCI).
+
+6) API Documentation
+- Add OpenAPI annotations:
+  - @Tag on controller
+  - @Operation per endpoint
+  - @ApiResponses for 200/201/204/400/404/422
+
+7) Security/Headers (microservices-ready)
+- Accept correlation id header: X-Correlation-Id (optional)
+- Accept tenant header: X-Tenant-Id (optional)
+- Pass headers into service only if required (otherwise log safely)
+
+### Output Requirements
+- Generate {EntityName}Controller.java with:
+  - @RestController, @RequestMapping, @RequiredArgsConstructor, @Slf4j
+  - Methods for CRUD + list with Pageable
+  - ResponseEntity usage for all endpoints
+  - Location header on POST
+  - OpenAPI annotations
+  - Clean imports and consistent naming

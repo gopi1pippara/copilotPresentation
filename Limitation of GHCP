@@ -1,0 +1,196 @@
+Here are the **top 5 summarized points** you can use in a presentation about the **disadvantages of GitHub Copilot Instruction and Skill files**. These are simplified and presentation-friendly.
+
+---
+
+## 1️⃣ Not Strictly Enforced
+
+Copilot instruction and skill files only **guide code generation**, but they **cannot enforce coding standards**. Developers must still rely on tools like **Checkstyle, SonarQube, and code reviews**.
+
+---
+
+## 2️⃣ Limited Context Understanding
+
+Copilot cannot fully understand **system architecture, business logic, or project structure**, so generated code may **violate architectural patterns or design principles**.
+
+---
+
+## 3️⃣ Inconsistent Behavior
+
+Copilot may **ignore parts of instruction or skill files**, especially when files are large, leading to **inconsistent or mixed coding styles**.
+
+---
+
+## 4️⃣ Maintenance Overhead
+
+Instruction and skill files must be **continuously updated** as technologies, frameworks, and coding standards evolve, otherwise they can become **outdated or misleading**.
+
+---
+
+## 5️⃣ Potential Security and Governance Risks
+
+These files may expose **internal practices, architecture details, or workflows**, and without governance they can become **difficult to manage across multiple repositories or teams**.
+
+---
+
+✅ **One-line takeaway for presentations**
+
+> Copilot instruction and skill files improve developer productivity, but they **do not replace code quality tools, architectural governance, or proper code reviews**.
+
+---
+
+If you want, I can also convert this into a **clean 1-slide executive summary format** (very useful for architecture or leadership presentations).
+
+
+
+Here’s a **presentation-friendly version with small examples**. Each point is concise and easy to place on a slide.
+
+---
+
+## 1️⃣ Not Strictly Enforced
+
+Copilot instructions **guide suggestions**, but they **cannot enforce rules**.
+
+**Example**
+
+Instruction file says:
+
+```java
+Use SLF4J logging
+```
+
+Copilot might still generate:
+
+```java
+System.out.println("User created");
+```
+
+Instead of:
+
+```java
+log.info("User created");
+```
+
+➡️ You still need tools like **Checkstyle or SonarQube**.
+
+---
+
+## 2️⃣ Limited Context Understanding
+
+Copilot cannot fully understand **architecture or system design**.
+
+**Example**
+
+Expected architecture:
+
+```
+Controller → Service → Repository
+```
+
+Copilot might generate:
+
+```java
+@RestController
+public class UserController {
+
+    @Autowired
+    private UserRepository repository;
+
+    public User getUser(Long id) {
+        return repository.findById(id).orElse(null);
+    }
+}
+```
+
+➡️ This **bypasses the service layer**, breaking architecture rules.
+
+---
+
+## 3️⃣ Inconsistent Behavior
+
+Copilot may **ignore parts of instruction files**, especially if they are long.
+
+**Example**
+
+Instruction says:
+
+```
+Use Java 17 records for DTOs
+```
+
+Copilot generates:
+
+```java
+public class UserDto {
+    private String name;
+    private String email;
+}
+```
+
+Instead of:
+
+```java
+public record UserDto(String name, String email) {}
+```
+
+➡️ Leads to **mixed coding styles in the codebase**.
+
+---
+
+## 4️⃣ Maintenance Overhead
+
+Instruction files must be **updated when technology changes**.
+
+**Example**
+
+Old instruction:
+
+```
+Use Java 11 Optional patterns
+```
+
+But project upgrades to **Java 17 or Spring Boot 3**.
+
+Copilot may still generate outdated patterns like:
+
+```java
+Optional.ofNullable(user).orElse(null);
+```
+
+➡️ Outdated instructions cause **legacy coding patterns**.
+
+---
+
+## 5️⃣ Security & Governance Risks
+
+Instruction or skill files may **expose internal engineering practices**.
+
+**Example**
+
+Instruction file contains:
+
+```
+Use internal API: https://internal-auth.company.com/token
+```
+
+If the repository becomes public, it reveals:
+
+* internal API endpoints
+* architecture details
+* system design
+
+➡️ This creates **security and governance concerns**.
+
+---
+
+# Simple Slide Takeaway
+
+**Copilot instructions improve productivity but cannot replace:**
+
+* Architecture governance
+* Code quality tools
+* Security reviews
+* Proper code reviews
+
+---
+
+If you'd like, I can also give you a **much stronger “pros vs cons” slide format (used in architecture review meetings)** so the topic looks more balanced and professional.

@@ -1,0 +1,6 @@
+Notes: 
+
+A good rule:
+Instructions file = always-needed repo behavior
+Skill / prompt file = task-specific guidance
+Prompt = current problem only

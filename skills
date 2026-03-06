@@ -1,0 +1,19 @@
+Here are short speaker bullets for a presentation on GitHub Copilot Skills markdown files:
+* GitHub Copilot Skills are reusable markdown-based task guides for specific jobs
+* They are best for detailed, task-specific workflows, not always-on repo guidance (GitHub Docs)
+* A skill helps Copilot perform specialized work with instructions, scripts, and supporting resources (GitHub Docs)
+* Each skill lives in its own folder and is defined by a SKILL.md file (GitHub Docs)
+* The skill name and description help Copilot decide when the skill is relevant (GitHub Docs)
+* Skills can be triggered automatically when relevant, or invoked manually with a slash command in Copilot CLI (GitHub Docs)
+* Skills are useful when a team wants repeatable engineering workflows instead of rewriting the same prompt every time
+* For example, a Spring Boot team can create skills for controller generation, test creation, API review, logging checks, or deployment steps
+* Skills improve consistency, speed, and reuse across common development tasks
+* They help encode team knowledge into a format Copilot can use on demand
+* Skills should be focused, practical, and narrow in scope
+* If a skill is too broad, too long, or outdated, it becomes less effective
+* Best practice: use instructions for always-needed repo rules, and skills for deeper task-specific guidance(GitHub Docs)
+* Think of a skill as a reusable expert playbook for one kind of task
+* Good skills make Copilot feel more like a specialized teammate, not just a generic code assistant
+One-line closing statement:
+* GitHub Copilot Skills turn repeatable engineering workflows into reusable markdown playbooks that Copilot can apply when needed
+If you want, I can also compress this into a 6-bullet executive slide version.

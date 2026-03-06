@@ -4,3 +4,87 @@ A good rule:
 Instructions file = always-needed repo behavior
 Skill / prompt file = task-specific guidance
 Prompt = current problem only
+
+
+Here are clean speaker bullet points you can use in your presentation on **GitHub Copilot instructions**:
+
+## Talk track bullets
+
+* **GitHub Copilot instructions help guide Copilot’s behavior for our project**
+* **They act like team-level guidance, not a one-time prompt**
+* **We use them to make Copilot generate code closer to our coding standards**
+* **This is useful for consistency across developers, services, and repositories**
+
+## What instructions do
+
+* **They provide project context automatically**
+* **They tell Copilot how our team prefers code to be written**
+* **They reduce the need to repeat the same guidance in every prompt**
+* **They help Copilot follow architecture and engineering patterns already used in the repo**
+
+## Simple real-world example
+
+* **In a Spring Boot project, we can instruct Copilot to use constructor injection**
+* **We can ask it to follow layered architecture: controller, service, repository**
+* **We can tell it to use JUnit 5 and Mockito for tests**
+* **We can remind it not to log secrets, tokens, or PII**
+* **This makes generated code more enterprise-ready from the start**
+
+## Why teams use instructions
+
+* **Improves consistency**
+* **Reduces repetitive prompting**
+* **Helps new developers get aligned faster**
+* **Makes Copilot outputs closer to team expectations**
+* **Supports governance and safer AI-assisted development**
+
+## Important point about tokens / context
+
+* **Yes, instructions consume context because Copilot has to read them**
+* **That means very large instruction files can reduce room for task-specific context**
+* **So the goal is not “more instructions,” but “better instructions”**
+* **Keep them short, clear, stable, and high value**
+
+## Negative impacts if instructions are bad
+
+* **Too many instructions can make responses generic or rigid**
+* **Outdated instructions can make Copilot suggest old patterns**
+* **Conflicting instructions can confuse output quality**
+* **Large instruction files can create unnecessary prompt overhead**
+* **Poor instructions can hurt instead of help**
+
+## Best practice message
+
+* **Use instructions for always-true project guidance**
+* **Do not use them for temporary tasks or sprint-specific notes**
+* **Keep them focused on standards, architecture, testing, security, and validation**
+* **Review them regularly as the codebase evolves**
+
+## Good content to place in instructions
+
+* **Java and Spring Boot version**
+* **Testing framework and standards**
+* **Dependency injection style**
+* **API and validation conventions**
+* **Exception handling pattern**
+* **Logging and security rules**
+* **Build and test commands**
+
+## What not to put in instructions
+
+* **Long architecture documents**
+* **Temporary feature requirements**
+* **Huge lists of generic coding rules**
+* **Information developers already provide in the current prompt**
+* **Anything stale, duplicated, or low value**
+
+## Strong one-line summary for speaking
+
+* **GitHub Copilot instructions are best when they are small, specific, and always relevant to the repository**
+
+## Closing line for presentation
+
+* **Think of instructions as the project’s default engineering guidance for Copilot: not too much, not too little, just enough to keep AI output aligned with the team**
+
+If you want, I can turn this into a **1-slide speaker note version** or a **30-second presentation script**.
+
